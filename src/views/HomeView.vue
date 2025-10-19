@@ -1,31 +1,35 @@
 <template>
-  <div class="flex flex-col items-center justify-center min-h-screen gap-6">
-    <h1 class="text-4xl font-bold text-primary">
-      🎉 Shadcn-Vue funcionando correctamente
-    </h1>
-
-    <!-- Ejemplo de uso del botón de Shadcn -->
-    <Button @click="handleClick">
-      Haz clic aquí
-    </Button>
-
-    <p v-if="clicked" class="text-green-500 text-lg mt-2">
-      ¡Perfecto! Todo está funcionando 🟢
-    </p>
+  <div class="flex h-screen bg-g90">
+    <div class="w-64 p-5">
+      <LateralBar />
+    </div>
+    <div class="h-full w-px bg-g50"></div>
+    <div class="flex-1 p-5 overflow-y-auto">
+      <RouterView v-slot="{ Component }">
+        <Transition name="slide-fade">
+          <component :is="Component" />
+        </Transition>
+      </RouterView>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { Button } from '@/components/ui/button'
-
-const clicked = ref(false)
-
-function handleClick() {
-  clicked.value = true
-}
 </script>
 
 <style scoped>
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
 
+.slide-fade-leave-active {
+  display: none;
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}
 </style>
