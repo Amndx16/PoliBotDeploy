@@ -1,31 +1,33 @@
 <template>
-  <div class="h-full w-full flex flex-col bg-G10 text-C90 gap-6">
-    <!-- Logo -->
+  <div class="h-full w-full flex flex-col bg-G10 text-G50 gap-8">
+
     <div class="flex justify-start items-start">
       <img src="@/assets/Logo.png" alt="Logo" class="w-48" />
     </div>
 
-    <!-- Buscar -->
     <div class="relative flex items-center w-full">
       <Input
         type="text"
         placeholder="Buscar..."
         class="text-sm bg-white w-full pl-10 rounded-2xl"
       />
-      <div class="absolute left-3 top-1/2 -translate-y-1/2 text-G50 flex items-center justify-center">
+      <div
+        class="absolute left-3 top-1/2 -translate-y-1/2 text-G50 flex items-center justify-center"
+      >
         <IconSearch class="w-5 h-5" />
       </div>
     </div>
 
-    <!-- Navegación -->
     <nav class="flex flex-col gap-2">
       <div
         v-for="(item, index) in menuItems"
         :key="index"
         @click="setActive(index)"
         :class="[
-          'flex items-center gap-3 px-4 py-2 rounded-2xl text-sm font-medium select-none transition-colors duration-200 cursor-pointer w-full',
-          activeIndex === index ? 'text-C90 bg-G10' : 'text-G50 hover:text-C90'
+          'flex items-center gap-3 px-4 py-2 rounded-2xl text-sm font-medium select-none transition-all duration-200 cursor-pointer w-full',
+          activeIndex === index
+            ? 'text-C90 bg-white'
+            : 'text-G50 hover:text-C90 hover:bg-white/60'
         ]"
       >
         <component :is="item.icon" class="w-5 h-5 flex-shrink-0" />
@@ -33,15 +35,19 @@
       </div>
     </nav>
 
-    <div class="mt-auto bg-G90 rounded-2xl flex items-center justify-between gap-2 p-3">
+    <div
+      class="mt-auto bg-white rounded-2xl flex items-center justify-between gap-2 p-3"
+    >
       <div class="flex items-center gap-2">
-        <div>
-          <span class="block text-xs  text-G50">Bienvenido</span>
-          <span class="block text-xs font-normal leading-none text-G10">Mariana Robledo</span>
+        <div class="gap-2">
+          <span class="block text-xs text-G50 font-thin mb-1">Bienvenido</span>
+          <span
+            class="block text-xs font-normal leading-none text-G90"
+          >Mariana Robledo</span>
         </div>
       </div>
       <div
-        class="flex items-center justify-center text-G50 hover:text-C90 transition-colors duration-200 cursor-pointer"
+        class="flex items-center justify-center text-G90 hover:text-C90 transition-colors duration-200 cursor-pointer"
       >
         <IconLogout class="w-5 h-5" />
       </div>
@@ -51,11 +57,9 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-
-/* Shadcn Components */
 import { Input } from "@/components/ui/input";
 
-/* Tabler Icons Vue */
+/* Tabler Icons */
 import {
   IconLayoutDashboard,
   IconUserCircle,
@@ -84,11 +88,7 @@ const menuItems = [
 </script>
 
 <style scoped>
-button {
-  transition: color 0.2s ease-in-out;
-}
-
-button:hover {
-  color: var(--C90);
+nav div {
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 </style>
