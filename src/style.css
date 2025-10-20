@@ -1,6 +1,4 @@
 @import "tailwindcss";
-@plugin "@tailwindcss/forms";
-@plugin "tailwindcss-animate";
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -23,7 +21,6 @@
   --color-ring: var(--color-C90);
 }
 
-
 @layer base {
   * {
     border-color: var(--color-border);
@@ -32,7 +29,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: "Nunito Sans", sans-serif;
+    font-family: "Nunito Sans", sans-serif; /* Fuente base */
   }
 }
 

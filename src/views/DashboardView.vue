@@ -2,34 +2,70 @@
   <div class="flex flex-col h-full w-full bg-G10 gap-6 p-6">
     <DashboardHeader />
 
-    <!-- Tarjetas de estadísticas -->
+    <!-- Estadísticas -->
     <div class="grid grid-cols-3 gap-4">
-      <DashboardStatCard title="Créditos Totales" :value="'245 / 280'" :icon="IconBook2" color="C90" />
-      <DashboardStatCard title="Promedio General" :value="'8.9'" :icon="IconChartBar" color="V10" />
-      <DashboardStatCard title="Materias Cursadas" :value="'35'" :icon="IconSchool" color="Y10" />
+      <DashboardStatCard title="Créditos Totales" :value="'245 / 280'" :icon="IconBook2"  />
+      <DashboardStatCard title="Promedio General" :value="'8.9'" :icon="IconChartBar"  />
+      <DashboardStatCard title="Materias Cursadas" :value="'35'" :icon="IconSchool" />
     </div>
 
-    <!-- Progreso -->
-    <DashboardProgress :value="87" />
+    <!-- Progreso global -->
+    <DashboardProgress :value="progressValue" />
 
-    <!-- Accesos rápidos -->
-    <div class="grid grid-cols-4 gap-4">
-      <DashboardQuickAction label="Cargar Kardex" :icon="IconFileUpload" />
-      <DashboardQuickAction label="Generar Perfil" :icon="IconUserCog" />
-      <DashboardQuickAction label="Generar Horario" :icon="IconCalendarCog" />
-      <DashboardQuickAction label="Ver Reseñas" :icon="IconStar" />
+    <!-- Resumen de estado -->
+    <div class="grid grid-cols-2 gap-4">
+      <DashboardSummaryCard
+        title="Perfil académico"
+        :value="hasKardex ? 'Generado' : 'Pendiente'"
+        :description="hasKardex ? 'Última actualización: 6 Oct 2025' : 'Carga tu Kardex para iniciar'"
+        :icon="IconUserCog"
+      />
+      <DashboardSummaryCard
+        title="Horario recomendado"
+        :value="hasSchedule ? 'Listo' : 'En espera'"
+        :description="hasSchedule ? '2 escenarios disponibles' : 'Genera tu perfil académico primero'"
+        :icon="IconCalendarCog"
+      />
     </div>
 
-    <!-- Actividad -->
+    <!-- Acción contextual -->
+    <div class="mt-4">
+      <DashboardActionCard
+        v-if="!hasKardex"
+        label="Cargar Kardex"
+        hint="Archivo .csv o .pdf"
+        :icon="IconFileUpload"
+        @action="handleUpload"
+      />
+      <DashboardActionCard
+        v-else-if="!hasSchedule"
+        label="Generar Horario"
+        hint="Basado en tu perfil"
+        :icon="IconCalendarCog"
+        @action="handleGenerateSchedule"
+      />
+      <DashboardActionCard
+        v-else
+        label="Ver Comparativas"
+        hint="Revisa tus escenarios"
+        :icon="IconChartBar"
+        @action="handleCompare"
+      />
+    </div>
+
+    <!-- Actividad reciente -->
     <DashboardActivity />
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue"
+
 import DashboardHeader from "@/components/dashboard/DashboardHeader.vue"
 import DashboardStatCard from "@/components/dashboard/DashboardStatCard.vue"
 import DashboardProgress from "@/components/dashboard/DashboardProgress.vue"
-import DashboardQuickAction from "@/components/dashboard/DashboardQuickAction.vue"
+import DashboardSummaryCard from "@/components/dashboard/SummaryCard.vue"
+import DashboardActionCard from "@/components/dashboard/DashboardActionCard.vue"
 import DashboardActivity from "@/components/dashboard/DashboardActivity.vue"
 
 import {
@@ -39,6 +75,22 @@ import {
   IconFileUpload,
   IconUserCog,
   IconCalendarCog,
-  IconStar,
 } from "@tabler/icons-vue"
-</script> 
+
+// Estados del alumno
+const hasKardex = ref(false)
+const hasSchedule = ref(false)
+
+const progressValue = ref(87)
+
+// Acciones
+function handleUpload() {
+  console.log("Subir Kardex")
+}
+function handleGenerateSchedule() {
+  console.log("Generar Horario")
+}
+function handleCompare() {
+  console.log("Comparar Horarios")
+}
+</script>
