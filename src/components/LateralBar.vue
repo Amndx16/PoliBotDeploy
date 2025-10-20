@@ -1,10 +1,12 @@
 <template>
   <div class="h-full w-full flex flex-col bg-G10 text-G50 gap-8">
 
+    <!-- Logo -->
     <div class="flex justify-start items-start">
       <img src="@/assets/Logo.png" alt="Logo" class="w-48" />
     </div>
 
+    <!-- Buscar -->
     <div class="relative flex items-center w-full">
       <Input
         type="text"
@@ -18,32 +20,34 @@
       </div>
     </div>
 
+    <!-- Navegación -->
     <nav class="flex flex-col gap-2">
-      <div
+      <RouterLink
         v-for="(item, index) in menuItems"
         :key="index"
-        @click="setActive(index)"
+        :to="item.to"
+        class="flex items-center gap-3 px-4 py-2 rounded-2xl text-sm font-medium select-none transition-all duration-200 cursor-pointer w-full"
         :class="[
-          'flex items-center gap-3 px-4 py-2 rounded-2xl text-sm font-medium select-none transition-all duration-200 cursor-pointer w-full',
-          activeIndex === index
+          route.name === item.name
             ? 'text-C90 bg-white'
             : 'text-G50 hover:text-C90 hover:bg-white/60'
         ]"
       >
         <component :is="item.icon" class="w-5 h-5 flex-shrink-0" />
         <span>{{ item.label }}</span>
-      </div>
+      </RouterLink>
     </nav>
 
+    <!-- Perfil inferior -->
     <div
       class="mt-auto bg-white rounded-2xl flex items-center justify-between gap-2 p-3"
     >
       <div class="flex items-center gap-2">
         <div class="gap-2">
           <span class="block text-xs text-G50 font-thin mb-1">Bienvenido</span>
-          <span
-            class="block text-xs font-normal leading-none text-G90"
-          >Mariana Robledo</span>
+          <span class="block text-xs font-normal leading-none text-G90">
+            Mariana Robledo
+          </span>
         </div>
       </div>
       <div
@@ -56,7 +60,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { useRoute } from "vue-router";
 import { Input } from "@/components/ui/input";
 
 /* Tabler Icons */
@@ -71,24 +75,21 @@ import {
   IconLogout,
 } from "@tabler/icons-vue";
 
-const activeIndex = ref<number | null>(null);
-
-const setActive = (index: number) => {
-  activeIndex.value = index;
-};
+const route = useRoute();
 
 const menuItems = [
-  { label: "Dashboard", icon: IconLayoutDashboard },
-  { label: "Datos Personales", icon: IconUserCircle },
-  { label: "Datos Académicos", icon: IconSchool },
-  { label: "Oferta Académica", icon: IconChalkboardTeacher },
-  { label: "Generador de Horario", icon: IconCalendarCog },
-  { label: "Docentes y Reseñas", icon: IconChecklist },
+  { label: "Dashboard", icon: IconLayoutDashboard, to: { name: "dashboard" }, name: "dashboard" },
+  { label: "Datos Personales", icon: IconUserCircle, to: { name: "datos-personales" }, name: "datos-personales" },
+  { label: "Datos Académicos", icon: IconSchool, to: { name: "datos-academicos" }, name: "datos-academicos" },
+  { label: "Oferta Académica", icon: IconChalkboardTeacher, to: { name: "oferta-academica" }, name: "oferta-academica" },
+  { label: "Generador de Horario", icon: IconCalendarCog, to: { name: "generador-horario" }, name: "generador-horario" },
+  { label: "Docentes y Reseñas", icon: IconChecklist, to: { name: "docentes-resenas" }, name: "docentes-resenas" },
 ];
 </script>
 
 <style scoped>
-nav div {
+nav a {
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  text-decoration: none;
 }
 </style>
