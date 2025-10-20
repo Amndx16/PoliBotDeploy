@@ -41,4 +41,4 @@ import {
   IconCalendarCog,
   IconStar,
 } from "@tabler/icons-vue"
-</script>
+</script> 

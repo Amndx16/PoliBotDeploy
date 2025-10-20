@@ -46,7 +46,7 @@
         <div class="gap-2">
           <span class="block text-xs text-G50 font-thin mb-1">Bienvenido</span>
           <span class="block text-xs font-normal leading-none text-G90">
-            Mariana Robledo
+            Andrea Medellin
           </span>
         </div>
       </div>
