@@ -1,10 +1,10 @@
 <template>
-  <div class="flex h-screen bg-g90">
-    <div class="w-64 p-5">
+  <div class="flex h-screen bg-G10">
+    <div class="w-60 p-2">
       <LateralBar />
     </div>
-    <div class="h-full w-px bg-g50"></div>
-    <div class="flex-1 p-5 overflow-y-auto">
+    <div class="h-full w-px"></div>
+    <div class="flex-1 p-4 overflow-y-auto">
       <RouterView v-slot="{ Component }">
         <Transition name="slide-fade">
           <component :is="Component" />
@@ -15,6 +15,7 @@
 </template>
 
 <script setup lang="ts">
+import LateralBar from '@/components/LateralBar.vue';
 </script>
 
 <style scoped>
