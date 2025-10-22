@@ -34,9 +34,8 @@ const safeAlt = computed(() => props.name || "Foto de perfil")
     </Avatar>
 
     <Button
-      variant="ghost"
       size="icon"
-      class="absolute bottom-0 right-0 rounded-full bg-primary text-white opacity-0 group-hover:opacity-100 transition"
+      class="absolute bottom-0 right-0 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition"
       @click="emit('upload')"
     >
       <Upload class="h-4 w-4" />

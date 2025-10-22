@@ -5,7 +5,7 @@
         <ProfileAvatar :src="alumno.foto" :name="alumno.nombre" />
 
         <div>
-          <h2 class="text-lg font-semibold leading-tight">
+          <h2 class="text-lg font-semibold leading-tight text-C90">
             {{ alumno.nombre }}
           </h2>
           <p class="text-sm text-muted-foreground">{{ alumno.carrera }}</p>
@@ -19,7 +19,7 @@
 
     <section class="w-full">
       <Tabs default-value="generales" class="w-full">
-        <TabsList class="flex flex-wrap gap-2 justify-start mb-3">
+        <TabsList class="flex flex-wrap gap-2 justify-start mb-3 w-2/4">
           <TabsTrigger value="generales">Generales</TabsTrigger>
           <TabsTrigger value="nacimiento">Nacimiento</TabsTrigger>
           <TabsTrigger value="direccion">Dirección</TabsTrigger>
