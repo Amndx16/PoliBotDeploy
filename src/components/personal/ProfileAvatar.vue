@@ -28,7 +28,7 @@ const safeAlt = computed(() => props.name || "Foto de perfil")
 
 <template>
   <div class="relative group">
-    <Avatar class="w-32 h-32 border border-border shadow-md overflow-hidden">
+    <Avatar class="w-32 h-32 border border-border overflow-hidden">
       <AvatarImage :src="safeSrc" :alt="safeAlt" />
       <AvatarFallback>{{ initials }}</AvatarFallback>
     </Avatar>

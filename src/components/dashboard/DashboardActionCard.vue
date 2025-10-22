@@ -1,6 +1,6 @@
 <template>
   <button
-    class="flex items-center justify-between w-full bg-white rounded-2xl p-4 border border-G30 shadow-sm hover:shadow-md transition"
+    class="flex items-center justify-between w-full bg-white rounded-2xl p-4 border border-G30"
     @click="$emit('action')"
   >
     <!-- Contenido principal -->

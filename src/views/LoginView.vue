@@ -17,7 +17,7 @@ const handleLogin = async () => {
 
 <template>
   <div class="flex flex-col justify-center items-center h-screen bg-gray-50">
-    <div class="bg-white shadow-md rounded-md p-6 w-96 space-y-4">
+    <div class="bg-white rounded-md p-6 w-96 space-y-4">
       <h1 class="text-2xl font-bold text-center text-blue-600">Inicio de Sesión</h1>
 
       <div>

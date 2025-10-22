@@ -11,7 +11,7 @@ const emit = defineEmits(["edit"])
 </script>
 
 <template>
-  <Card class="shadow-sm hover:shadow-md transition-all duration-200">
+  <Card class="transition-all duration-200">
     <CardHeader>
       <CardTitle>{{ title }}</CardTitle>
     </CardHeader>
