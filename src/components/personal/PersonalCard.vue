@@ -13,7 +13,7 @@ const emit = defineEmits(["edit"])
 <template>
   <Card class="transition-all duration-200">
     <CardHeader>
-      <CardTitle>{{ title }}</CardTitle>
+      <CardTitle class="text-md text-C90">{{ title }}</CardTitle>
     </CardHeader>
 
     <CardContent class="space-y-2 text-sm">
@@ -21,7 +21,7 @@ const emit = defineEmits(["edit"])
     </CardContent>
 
     <CardFooter class="justify-end">
-      <Button v-if="editable" variant="outline" size="sm" @click="emit('edit')">
+      <Button v-if="editable" variant="secondary" @click="emit('edit')">
         Modificar
       </Button>
     </CardFooter>

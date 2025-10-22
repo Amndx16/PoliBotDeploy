@@ -12,7 +12,7 @@
         </div>
       </div>
 
-      <Button variant="secondary" size="sm" class="self-start md:self-auto">
+      <Button variant="secondary">
         Imprimir datos
       </Button>
     </section>

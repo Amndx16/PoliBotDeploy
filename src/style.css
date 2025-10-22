@@ -9,6 +9,7 @@
 
   --color-C90: #750846;
   --color-C80: #D23E73;
+  --color-C10: #eccfd9ff;
   --color-G10: #F1F1F1;
   --color-G50: #666666;
   --color-G90: #333333;
@@ -58,6 +59,7 @@
   /* Background */
   .bg-C90 { background-color: var(--color-C90); }
   .bg-C80 { background-color: var(--color-C80); }
+  .bg-C10 { background-color: var(--color-C10); }
   .bg-G10 { background-color: var(--color-G10); }
   .bg-G50 { background-color: var(--color-G50); }
   .bg-G90 { background-color: var(--color-G90); }
@@ -68,6 +70,7 @@
   /* Text */
   .text-C90 { color: var(--color-C90); }
   .text-C80 { color: var(--color-C80); }
+  .text-C10 { color: var(--color-C10); }
   .text-G10 { color: var(--color-G10); }
   .text-G50 { color: var(--color-G50); }
   .text-G90 { color: var(--color-G90); }

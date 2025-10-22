@@ -17,7 +17,7 @@ const handleLogin = async () => {
 
 <template>
   <div class="flex flex-col justify-center items-center h-screen bg-gray-50">
-    <div class="bg-white rounded-md p-6 w-96 space-y-4">
+    <div class="bg-white rounded-2xl p-6 w-96 space-y-4">
       <h1 class="text-2xl font-bold text-center text-blue-600">Inicio de Sesión</h1>
 
       <div>
@@ -25,7 +25,7 @@ const handleLogin = async () => {
         <input
           v-model="boleta"
           type="text"
-          class="mt-1 w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500"
+          class="mt-1 w-full border border-gray-300 rounded-2xl px-3 py-2 focus:ring-2 focus:ring-blue-500"
           placeholder="Ej. 2025123456"
         />
       </div>
@@ -35,7 +35,7 @@ const handleLogin = async () => {
         <input
           v-model="password"
           type="password"
-          class="mt-1 w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500"
+          class="mt-1 w-full border border-gray-300 rounded-2xl px-3 py-2 focus:ring-2 focus:ring-blue-500"
           placeholder="Tu contraseña"
         />
       </div>
@@ -43,7 +43,7 @@ const handleLogin = async () => {
       <button
         @click="handleLogin"
         :disabled="auth.loading"
-        class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 disabled:opacity-60"
+        class="w-full bg-blue-600 text-white py-2 rounded-2xl hover:bg-blue-700 disabled:opacity-60"
       >
         {{ auth.loading ? 'Cargando...' : 'Iniciar sesión' }}
       </button>

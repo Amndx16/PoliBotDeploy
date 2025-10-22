@@ -38,7 +38,7 @@ const save = () => {
       <PopoverContent class="w-64 p-3 space-y-2" align="end">
         <Input v-model="tempValue" class="w-full" />
         <div class="flex justify-end gap-2">
-          <Button size="sm" variant="outline" @click="open = false">Cancelar</Button>
+          <Button size="sm" variant="secondary" @click="open = false">Cancelar</Button>
           <Button size="sm" @click="save">Guardar</Button>
         </div>
       </PopoverContent>
