@@ -3,7 +3,7 @@
     <Collapsible
       v-for="(semestre, index) in semestres"
       :key="index"
-      class="border border-G20 rounded-2xl transition-all shadow-sm hover:shadow-md"
+      class="border border-G20 rounded-2xl transition-all"
       default-open
     >
       <CollapsibleTrigger

@@ -5,7 +5,7 @@
     <!-- Estadísticas -->
     <div class="grid grid-cols-3 gap-4">
       <DashboardStatCard title="Créditos Totales" :value="'245 / 280'" :icon="IconBook2"  />
-      <DashboardStatCard title="Promedio General" :value="'8.9'" :icon="IconChartBar"  />
+      <DashboardStatCard title="Promedio General" :value="'10'" :icon="IconChartBar"  />
       <DashboardStatCard title="Materias Cursadas" :value="'35'" :icon="IconSchool" />
     </div>
 
