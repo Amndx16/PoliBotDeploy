@@ -3,7 +3,7 @@
     <div
       class="flex flex-col items-center justify-center gap-3 p-4 bg-white rounded-2xl"
     >
-      <p class="text-C90 font-medium text-center select-none">
+      <p class="text-C90 font-semibold text-center select-none">
         Acciones rápidas
       </p>
 

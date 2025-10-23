@@ -3,7 +3,7 @@
     <!-- Imagen lateral -->
     <div class="w-3/4 h-full rounded-xl overflow-hidden">
       <img
-        src="@/assets/LoginPolibot.jpg"
+        src="@/assets/PoliBot.png"
         alt="Login PoliBot"
         class="object-cover w-full h-full rounded-2xl"
       />
@@ -16,15 +16,10 @@
         <img
           src="@/assets/Logo.png"
           alt="Logo PoliBot"
-          class="mb-4"
+
         />
       </div>
 
-      <!-- Encabezado -->
-      <div class="flex flex-col text-left">
-        <h2 class="text-md font-light text-G50">Sistema de Recomendación de</h2>
-        <h1 class="text-4xl font-bold text-C90">POLIBOT</h1>
-      </div>
 
       <!-- Formulario de login -->
       <form @submit="onSubmit" class="flex flex-col gap-8">
