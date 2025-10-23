@@ -28,7 +28,7 @@
         <div
           v-for="h in horas"
           :key="`${d}-${h}`"
-          class="relative h-10 rounded-xl bg-white/40 flex items-center justify-center p-1"
+          class="relative h-10 rounded-2xl bg-white flex items-center justify-center p-1"
         >
           <!-- Materias -->
           <div

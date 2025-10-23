@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-screen flex flex-row bg-slate-50 p-6">
+  <div class="w-full h-screen flex flex-row p-6">
     <!-- Imagen lateral -->
     <div class="w-3/4 h-full rounded-xl overflow-hidden">
       <img

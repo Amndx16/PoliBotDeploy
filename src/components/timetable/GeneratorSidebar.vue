@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col gap-6 bg-white rounded-2xl p-4 shadow-sm w-full transition-all"
+    class="flex flex-col gap-6 bg-white rounded-2xl p-4  w-full transition-all"
   >
     <h2 class="text-C90 font-semibold text-lg text-center tracking-tight">
       Parámetros
