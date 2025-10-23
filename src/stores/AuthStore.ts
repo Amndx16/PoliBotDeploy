@@ -79,7 +79,7 @@ export const useAuthStore = defineStore('auth', {
         this.isAuth = true
 
         toast.success(`Bienvenida, ${boleta} `)
-        setTimeout(() => router.push({ name: 'home' }), 800)
+        setTimeout(() => router.push({ name: 'dashboard' }), 800)
       } catch (error) {
         this._handleAxiosError(error, 'Error al iniciar sesión')
       } finally {
