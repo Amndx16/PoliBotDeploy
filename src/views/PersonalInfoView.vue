@@ -93,41 +93,41 @@ import InfoCard from "@/components/personal/PersonalCard.vue"
 import Field from "@/components/personal/Field.vue"
 
 const alumno = ref({
-  nombre: "Andrea Medellín Niño",
-  carrera: "Ingeniería en Inteligencia Artificial",
-  foto: "",
-  boleta: "2023630592",
-  plantel: "ESCOM",
-  curp: "TURF020523MMCRDR4R4",
-  rfc: "TURF020523",
-  sexo: "Mujer",
-  nacimiento: {
-    fecha: "23 May 2002",
-    nacionalidad: "México",
-    entidad: "Ciudad de México",
-  },
-  direccion: {
-    calle: "Avenida Centenario 3004 BIS",
-    colonia: "Lomas de Tarango",
-    cp: "01620",
-    estado: "Ciudad de México",
-    municipio: "Álvaro Obregón",
-    telefono: "5528618496",
-    email: "trujillo.rodriguez.fernanda23@gmail.com",
-    labora: "No",
-  },
-  escolaridad: {
-    procedencia: "CET 1",
-    entidadEscuela: "Ciudad de México",
-    promedioSecundaria: "9.00",
-    promedioBachillerato: "8.10",
-  },
-  tutor: {
-    nombreTutor: "Sin especificar",
-    rfcTutor: "XXXX999999",
-    padre: "Sin especificar",
-    madre: "Sin especificar",
-  },
+  nombre: 'Andrea Medellín Niño',
+        carrera: 'Ingeniería en Inteligencia Artificial',
+        foto: '',
+        boleta: '2023630592',
+        plantel: 'ESCOM',
+        curp: 'ABCD098765HHDGSAW8',
+        rfc: 'GDFS937465',
+        sexo: 'Mujer',
+        nacimiento: {
+          fecha: '1 de enero de 2005',
+          nacionalidad: 'México',
+          entidad: 'Ciudad de México',
+        },
+        direccion: {
+          calle: 'Avenida Imaginaria 5004',
+          colonia: 'Colonia Prueba',
+          cp: '45269',
+          estado: 'Ciudad de México',
+          municipio: 'Coyoacán',
+          telefono: '5510122345',
+          email: 'medellin.nino.andrea@gmail.com',
+          labora: 'No',
+        },
+        escolaridad: {
+          procedencia: 'CET 1',
+          entidadEscuela: 'Ciudad de México',
+          promedioSecundaria: '9.00',
+          promedioBachillerato: '8.10',
+        },
+        tutor: {
+          nombreTutor: 'Sin especificar',
+          rfcTutor: 'XXXX999999',
+          padre: 'Sin especificar',
+          madre: 'Sin especificar',
+        },
 })
 </script>
 
