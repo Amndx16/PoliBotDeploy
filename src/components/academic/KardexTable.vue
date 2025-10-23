@@ -3,24 +3,26 @@
     <Collapsible
       v-for="(semestre, index) in semestres"
       :key="index"
-      class="border rounded-lg shadow-sm bg-card/30 transition-all hover:shadow-md"
+      class="border border-G20 rounded-2xl transition-all shadow-sm hover:shadow-md"
       default-open
     >
       <CollapsibleTrigger
-        class="flex items-center justify-between w-full px-4 py-3 text-left font-semibold text-primary border-b hover:bg-muted/30"
+        class="flex items-center justify-between w-full px-4 py-3 text-left font-semibold text-C90 border-b border-G20 hover:bg-G10/40 rounded-t-2xl"
       >
         <span class="flex items-center gap-2">
-          <BookOpen class="h-4 w-4 text-primary" />
+          <BookOpen class="h-4 w-4 text-C70" />
           {{ semestre.nombre }}
         </span>
 
-        <ChevronDown class="h-4 w-4 transition-transform duration-300 group-data-[state=open]:rotate-180" />
+        <ChevronDown
+          class="h-4 w-4 transition-transform duration-300 group-data-[state=open]:rotate-180"
+        />
       </CollapsibleTrigger>
 
-      <CollapsibleContent class="p-4 overflow-x-auto">
+      <CollapsibleContent class="p-4 overflow-x-auto bg-transparent">
         <Table>
           <TableHeader>
-            <TableRow>
+            <TableRow class="border-b border-G20">
               <TableHead>Clave</TableHead>
               <TableHead>Materia</TableHead>
               <TableHead>Fecha</TableHead>
@@ -33,7 +35,7 @@
             <TableRow
               v-for="mat in semestre.materias"
               :key="mat.clave"
-              class="hover:bg-muted/50 transition-colors"
+              class="hover:bg-G10/30 transition-colors"
             >
               <TableCell class="font-medium">{{ mat.clave }}</TableCell>
               <TableCell>{{ mat.nombre }}</TableCell>
@@ -41,7 +43,13 @@
               <TableCell>{{ mat.periodo }}</TableCell>
               <TableCell>
                 <Badge
-                  :variant="mat.forma === 'ORD' ? 'secondary' : mat.forma === 'REC' ? 'outline' : 'default'"
+                  :variant="
+                    mat.forma === 'ORD'
+                      ? 'secondary'
+                      : mat.forma === 'REC'
+                      ? 'outline'
+                      : 'default'
+                  "
                   class="uppercase"
                 >
                   {{ mat.forma }}
@@ -51,7 +59,8 @@
                 <span
                   :class="{
                     'text-green-600 font-semibold': mat.calif >= 9,
-                    'text-yellow-600 font-medium': mat.calif >= 7 && mat.calif < 9,
+                    'text-yellow-600 font-medium':
+                      mat.calif >= 7 && mat.calif < 9,
                     'text-red-600 font-semibold': mat.calif < 7
                   }"
                 >

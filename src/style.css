@@ -23,6 +23,18 @@
 }
 
 @layer base {
+  :root {
+    --background: var(--color-G10);
+    --foreground: var(--color-G90);
+    --card: var(--color-G10);
+    --card-foreground: var(--color-G90);
+    --muted: var(--color-G10);
+    --muted-foreground: var(--color-G50);
+  }
+}
+
+
+@layer base {
   * {
     border-color: var(--color-border);
     outline-color: color-mix(in oklch, var(--color-ring) 50%, transparent);

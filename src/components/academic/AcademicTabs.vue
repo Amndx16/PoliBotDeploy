@@ -1,6 +1,6 @@
 <template>
   <Tabs default-value="kardex">
-    <TabsList class="flex flex-wrap gap-2 mb-3">
+    <TabsList class="flex flex-wrap gap-2 justify-start mb-3 w-2/6">
       <TabsTrigger value="kardex">Kardex</TabsTrigger>
       <TabsTrigger value="estado">Estado General</TabsTrigger>
       <TabsTrigger value="mapa">Mapa Curricular</TabsTrigger>
