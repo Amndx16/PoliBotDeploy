@@ -1,13 +1,19 @@
 <template>
-  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full">
+  <div
+    class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-4xl mx-auto px-4"
+  >
     <!-- Créditos -->
-    <Card class="p-4 text-center rounded-2xl border bg-white/70 hover:bg-white transition-all">
+    <div
+      class="bg-white rounded-2xl p-5 text-center transition-all flex flex-col items-center justify-center"
+    >
       <h4 class="text-sm text-G50 font-medium mb-1">Créditos</h4>
       <p class="text-2xl font-semibold text-C90">{{ metrics.creditos }}</p>
-    </Card>
+    </div>
 
     <!-- Huecos -->
-    <Card class="p-4 text-center rounded-2xl border bg-white/70 hover:bg-white transition-all">
+    <div
+      class="bg-white rounded-2xl p-5 text-center transition-all flex flex-col items-center justify-center"
+    >
       <h4 class="text-sm text-G50 font-medium mb-1">Huecos</h4>
       <p
         class="text-2xl font-semibold"
@@ -19,10 +25,12 @@
       >
         {{ metrics.huecos }}
       </p>
-    </Card>
+    </div>
 
     <!-- Eficiencia -->
-    <Card class="p-4 text-center rounded-2xl border bg-white/70 hover:bg-white transition-all">
+    <div
+      class="bg-white rounded-2xl p-5 text-center transition-all flex flex-col items-center justify-center"
+    >
       <h4 class="text-sm text-G50 font-medium mb-1">Eficiencia</h4>
       <p
         class="text-2xl font-semibold"
@@ -34,13 +42,11 @@
       >
         {{ metrics.eficiencia }}%
       </p>
-    </Card>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { Card } from "@/components/ui/card"
-
 defineProps<{
   metrics: {
     huecos: number
@@ -51,8 +57,8 @@ defineProps<{
 </script>
 
 <style scoped>
-div[class*="Card"]:hover {
+div:hover {
   transform: translateY(-2px);
-  transition: all 0.15s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 </style>

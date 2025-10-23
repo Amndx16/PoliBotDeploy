@@ -1,42 +1,37 @@
 <template>
-  <div class="flex flex-col gap-6 w-full">
-    <!-- Encabezado -->
-    <div class="flex items-center justify-between">
-      <h2 class="text-lg font-semibold text-C90">Horarios Generados</h2>
-      <div v-if="schedules.length" class="flex gap-2">
-        <Button variant="outline" size="sm" @click="$emit('comparar')">
-          <IconLayoutGrid class="w-4 h-4 mr-2" /> Comparar
-        </Button>
-        <Button variant="outline" size="sm" @click="$emit('exportar')">
-          <IconDownload class="w-4 h-4 mr-2" /> Exportar
-        </Button>
-      </div>
-    </div>
-
+  <div class="flex flex-col items-center justify-center w-full gap-4">
     <!-- Tabs -->
-    <Tabs v-if="schedules.length" v-model="selectedTab" class="w-full">
-      <TabsList class="flex flex-wrap gap-2 bg-G10/60 rounded-2xl p-1">
+    <Tabs v-if="displayedSchedules.length" v-model="selectedTab" class="w-full flex flex-col items-center">
+      <!-- Lista de pestañas -->
+      <TabsList
+        class="flex justify-center flex-wrap"
+      >
         <TabsTrigger
-          v-for="(_, i) in schedules"
+          v-for="(_, i) in displayedSchedules"
           :key="i"
           :value="String(i)"
-          class="rounded-xl px-4 py-1 text-sm data-[state=active]:bg-C10 data-[state=active]:text-C90"
+          class="rounded-2xl font-thin text-sm text-C90 hover:bg-G10 transition-all"
         >
           Horario {{ i + 1 }}
         </TabsTrigger>
       </TabsList>
 
-      <TabsContent
-        v-for="(horario, i) in schedules"
-        :key="'content-' + i"
-        :value="String(i)"
-        class="mt-4"
-      >
-        <ScheduleGrid :horario="horario" />
-        <ScheduleMetrics :metrics="horario.metrics" class="mt-6" />
-      </TabsContent>
+      <!-- Contenido centrado -->
+      <div class="flex justify-center w-full">
+        <div class="w-full max-w-5xl px-4">
+          <TabsContent
+            v-for="(horario, i) in displayedSchedules"
+            :key="'content-' + i"
+            :value="String(i)"
+            class="flex flex-col items-center gap-6"
+          >
+            <ScheduleGrid :horario="horario" />
+          </TabsContent>
+        </div>
+      </div>
     </Tabs>
 
+    <!-- Estado vacío -->
     <div v-else class="text-center text-G50 italic py-8">
       Aún no has generado ningún horario.
     </div>
@@ -44,17 +39,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue"
+import { ref, computed, watch } from "vue"
 
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
-import { Button } from "@/components/ui/button"
-
 import ScheduleGrid from "./ScheduleGrid.vue"
-import ScheduleMetrics from "./ScheduleMetrics.vue"
 
-import { IconDownload, IconLayoutGrid } from "@tabler/icons-vue"
-
-/* Props */
 interface Materia {
   nombre: string
   profesor: string
@@ -74,11 +63,19 @@ interface Horario {
   }
 }
 
-defineProps<{
-  schedules: Horario[]
-}>()
-
-defineEmits(["comparar", "exportar"])
+const props = defineProps<{ schedules: Horario[] }>()
+const emit = defineEmits(["comparar", "exportar", "update:selectedTab"])
 
 const selectedTab = ref("0")
+watch(selectedTab, (newVal) => emit("update:selectedTab", Number(newVal)))
+
+
+const displayedSchedules = computed(() => {
+  if (props.schedules.length >= 3) return props.schedules
+  const filler = Array.from({ length: 3 - props.schedules.length }, () => ({
+    materias: [],
+    metrics: { huecos: 0, creditos: 0, eficiencia: 0 },
+  }))
+  return [...props.schedules, ...filler]
+})
 </script>

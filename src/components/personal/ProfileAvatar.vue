@@ -3,6 +3,8 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Upload } from "lucide-vue-next"
 import { computed } from "vue"
+import profileImg from "@/assets/profile.png"
+
 
 interface Props {
   src?: string
@@ -22,14 +24,14 @@ const initials = computed(() =>
     : "?"
 )
 
-const safeSrc = computed(() => props.src ?? "")
-const safeAlt = computed(() => props.name || "Foto de perfil")
+/* const safeSrc = computed(() => props.src ?? "")
+const safeAlt = computed(() => props.name || "Foto de perfil") */
 </script>
 
 <template>
   <div class="relative group">
     <Avatar class="w-32 h-32 border border-border overflow-hidden">
-      <AvatarImage :src="safeSrc" :alt="safeAlt" />
+    <AvatarImage :src="profileImg" alt="Foto de perfil" />
       <AvatarFallback>{{ initials }}</AvatarFallback>
     </Avatar>
 

@@ -1,49 +1,74 @@
 <template>
-  <div
-    class="flex flex-col sm:flex-row justify-between items-center gap-4 mt-6 p-4 rounded-2xl border bg-G10"
-  >
-    <!-- Información -->
-    <div class="text-sm text-G50 text-center sm:text-left">
-      <p>
-        <span class="font-semibold text-C90">Acciones disponibles:</span>
-        puedes exportar, guardar o volver a generar horarios.
+  <TooltipProvider>
+    <div
+      class="flex flex-col items-center justify-center gap-3 p-4 bg-white rounded-2xl"
+    >
+      <p class="text-C90 font-medium text-center select-none">
+        Acciones rápidas
       </p>
+
+      <div class="flex flex-row flex-wrap justify-center gap-3">
+        <!-- Comparar -->
+        <Tooltip>
+          <TooltipTrigger as-child>
+            <Button
+              variant="outline"
+              @click="$emit('comparar')"
+            >
+              <IconLayoutGrid class="w-5 h-5" />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent side="bottom" class="text-xs px-2 py-1">
+            Comparar horarios
+          </TooltipContent>
+        </Tooltip>
+
+        <!-- Regenerar -->
+        <Tooltip>
+          <TooltipTrigger as-child>
+            <Button
+              variant="outline"
+              @click="$emit('regenerar')"
+            >
+              <IconRefresh class="w-5 h-5" />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent side="bottom" class="text-xs px-2 py-1">
+            Regenerar horarios
+          </TooltipContent>
+        </Tooltip>
+
+        <!-- Guardar -->
+        <Tooltip>
+          <TooltipTrigger as-child>
+            <Button
+              variant="outline"
+              @click="$emit('guardar')"
+            >
+              <IconBookmark class="w-5 h-5" />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent side="bottom" class="text-xs px-2 py-1">
+            Guardar horario
+          </TooltipContent>
+        </Tooltip>
+
+        <!-- Exportar -->
+        <Tooltip>
+          <TooltipTrigger as-child>
+            <Button
+              @click="$emit('exportar')"
+            >
+              <IconDownload class="w-5 h-5" />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent side="bottom" class="text-xs px-2 py-1">
+            Exportar a PDF
+          </TooltipContent>
+        </Tooltip>
+      </div>
     </div>
-
-    <!-- Botones -->
-    <div class="flex flex-wrap justify-center sm:justify-end gap-2">
-      <Button
-        variant="outline"
-        class="rounded-2xl"
-        @click="$emit('comparar')"
-      >
-        <IconLayoutGrid class="w-4 h-4 mr-2" /> Comparar
-      </Button>
-
-      <Button
-        variant="outline"
-        class="rounded-2xl"
-        @click="$emit('regenerar')"
-      >
-        <IconRefresh class="w-4 h-4 mr-2" /> Regenerar
-      </Button>
-
-      <Button
-        variant="outline"
-        class="rounded-2xl"
-        @click="$emit('guardar')"
-      >
-        <IconBookmark class="w-4 h-4 mr-2" /> Guardar
-      </Button>
-
-      <Button
-        class="bg-C90 hover:bg-C80 text-white rounded-2xl"
-        @click="$emit('exportar')"
-      >
-        <IconDownload class="w-4 h-4 mr-2" /> Exportar PDF
-      </Button>
-    </div>
-  </div>
+  </TooltipProvider>
 </template>
 
 <script setup lang="ts">
@@ -55,5 +80,15 @@ import {
   IconRefresh,
 } from "@tabler/icons-vue"
 
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+  TooltipProvider,
+} from "@/components/ui/tooltip"
+
 defineEmits(["comparar", "exportar", "guardar", "regenerar"])
 </script>
+
+<style scoped>
+</style>
