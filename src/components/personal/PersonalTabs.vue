@@ -8,10 +8,10 @@
 
     <TabsContent value="generales">
       <PersonalCard title="Datos Generales">
-        <PersonalField label="Boleta" value="2023630592" />
+        <PersonalField label="Boleta" value="2023970398" />
         <PersonalField label="Plantel" value="ESCOM" />
-        <PersonalField label="CURP" value="TURF020523MMCRDR4R4" />
-        <PersonalField label="RFC" value="TURF020523" />
+        <PersonalField label="CURP" value="ABCD098765DDHSTAE" />
+        <PersonalField label="RFC" value="MDJSH785634" />
         <PersonalField label="Sexo" value="Mujer" />
       </PersonalCard>
     </TabsContent>
@@ -21,7 +21,7 @@
         <p class="text-sm text-red-600 mb-3">
           Si vas a modificar tu fecha de nacimiento, usa el formato "15 Mar 1992"
         </p>
-        <PersonalField label="Fecha de Nacimiento" value="23 May 2002" />
+        <PersonalField label="Fecha de Nacimiento" value="1 ene 2005" />
         <PersonalField label="Nacionalidad" value="México" />
         <PersonalField label="Entidad de Nacimiento" value="CDMX" />
       </PersonalCard>

@@ -56,10 +56,10 @@ const academicData = {
   promedio: 10,
   estado: {
     reprobadas: [
-      { materia: "Matemáticas Discretas", descripcion: "No aprobada", veces: 2 },
+      { },
     ],
     noCursadas: [
-      { materia: "Administración", descripcion: "Pendiente de cursar", veces: 0 },
+      { materia: "Probabilidad y Estadística", descripcion: "Pendiente de cursar", veces: 0 },
     ],
     desfasadas: [],
   },
