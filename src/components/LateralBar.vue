@@ -1,6 +1,5 @@
 <template>
   <div class="h-full w-full flex flex-col bg-G10 text-G50 gap-8">
-
     <!-- Logo -->
     <div class="flex justify-start items-start">
       <img src="@/assets/Logo.png" alt="Logo" class="w-48" />
@@ -38,7 +37,6 @@
       </RouterLink>
     </nav>
 
-    <!-- Perfil inferior -->
     <div
       class="mt-auto bg-white rounded-2xl flex items-center justify-between gap-2 p-3"
     >
@@ -50,8 +48,10 @@
           </span>
         </div>
       </div>
+
       <div
         class="flex items-center justify-center text-G90 hover:text-C90 transition-colors duration-200 cursor-pointer"
+        @click="cerrarSesion"
       >
         <IconLogout class="w-5 h-5" />
       </div>
@@ -62,6 +62,7 @@
 <script setup lang="ts">
 import { useRoute } from "vue-router";
 import { Input } from "@/components/ui/input";
+import { useAuthStore } from "@/stores/AuthStore";
 
 /* Tabler Icons */
 import {
@@ -76,6 +77,7 @@ import {
 } from "@tabler/icons-vue";
 
 const route = useRoute();
+const authStore = useAuthStore();
 
 const menuItems = [
   { label: "Dashboard", icon: IconLayoutDashboard, to: { name: "dashboard" }, name: "dashboard" },
@@ -85,6 +87,10 @@ const menuItems = [
   { label: "Generador de Horario", icon: IconCalendarCog, to: { name: "generador-horario" }, name: "generador-horario" },
   { label: "Docentes y Reseñas", icon: IconChecklist, to: { name: "docentes-resenas" }, name: "docentes-resenas" },
 ];
+
+const cerrarSesion = () => {
+  authStore.logout();
+};
 </script>
 
 <style scoped>

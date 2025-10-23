@@ -22,7 +22,7 @@
 
     <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3">
       <div
-        class="flex flex-col items-center justify-center border rounded-md p-3 w-28 h-24 bg-muted/40"
+        class="flex flex-col items-center justify-center border rounded-2xl p-3 w-28 h-24 bg-muted/40"
       >
         <span class="text-xs text-muted-foreground">Promedio</span>
         <span

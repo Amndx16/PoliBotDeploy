@@ -10,7 +10,7 @@
   --color-C90: #750846;
   --color-C80: #D23E73;
   --color-C10: #eccfd9ff;
-  --color-G10: #F1F1F1;
+  --color-G10: #e7e7e7ff;
   --color-G50: #666666;
   --color-G90: #333333;
   --color-V10: #5CD162;
@@ -36,7 +36,6 @@
 
 
 @layer base {
-  input,
   textarea,
   select {
     border: none !important;

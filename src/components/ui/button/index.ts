@@ -8,7 +8,7 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-C10 text-C80 text-sm border border-C80 rounded-2xl hover:bg-white",
+        default: "bg-C10 text-C80 text-sm rounded-2xl border border-C80 hover:bg-white",
         secondary: "bg-white text-G90 text-sm border border-G90 rounded-2xl hover:bg-gray-200",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
@@ -18,14 +18,12 @@ export const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
-        "default": "h-9 px-4 py-2",
-        "xs": "h-7 rounded px-2",
-        "sm": "h-8 rounded-md px-3 text-xs",
-        "lg": "h-10 rounded-md px-8",
-        "icon": "h-9 w-9",
-        "icon-sm": "size-8",
-        "icon-lg": "size-10",
+        default: "h-10 px-4 py-2",
+        sm: "h-9 rounded-2xl px-3",
+        lg: "h-11 rounded-2xl px-8",
+        icon: "h-10 w-10",
       },
+
     },
     defaultVariants: {
       variant: "default",
